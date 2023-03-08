@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+service AI {
+  rpc getChatGPTReply(ChatGPTResquest) returns (ChatGPTResponse);
+  rpc resetChatOption(ResetRequest) returns (google.protobuf.Empty);
+}
+
+message ChatGPTResquest {
+  string content = 1;
+  string contactId = 2;
+}
+
+message ChatGPTResponse {
+  string reply = 1;
+}
+
+message ResetRequest {
+  string contactId = 1;
+}
